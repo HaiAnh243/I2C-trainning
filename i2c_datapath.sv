@@ -38,12 +38,13 @@ module i2c_datapath(
         ADDRESS: begin
           SDA_out <= saved_addr[count];
         end
-        READ_ACK2:begin
-          
+        READ_ACK: begin
         end
         WRITE_DATA:begin
           SDA_out <= saved_data[count];
           if(count == 0) valid <= 1; 
+        end
+        READ_ACK2:begin
         end
         READ_DATA: begin
           data_out[count] <= SDA_in;
