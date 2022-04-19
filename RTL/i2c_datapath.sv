@@ -39,7 +39,7 @@ module i2c_datapath(
           //if(star_en) 
             //begin
               SDA_out <= 1'b0;
-              saved_data <= data_in;
+            //  saved_data <= data_in;
               saved_addr <= {address,rw};
               //star_done <= 1;
             //end
@@ -51,7 +51,7 @@ module i2c_datapath(
         READ_ACK2:begin   
         end
         WRITE_DATA:begin
-          SDA_out <= saved_data[count];
+          SDA_out <= data_in[count];
         end
         READ_DATA: begin
           data_out[count] <= SDA_in;
